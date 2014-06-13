@@ -14,7 +14,6 @@
   "Graphene custom settings."
   :group 'environment)
 
-
 (defcustom graphene-linum-auto t
   "Whether graphene should enable line numbers with prog-modes."
   :type 'boolean
@@ -143,7 +142,7 @@
            (locate-file invocation-name
                         (list invocation-directory) exec-suffixes)))
       (call-process path-to-emacs nil 0 nil))))
-      
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Graphene Editing
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -170,7 +169,7 @@
   (global-set-key [double-wheel-up] (lambda () (interactive) (scroll-down-command 2)))
   (global-set-key [triple-wheel-down] (lambda () (interactive) (scroll-up-command 4)))
   (global-set-key [triple-wheel-up] (lambda () (interactive) (scroll-down-command 4))))
-  
+
 ;; Character encodings default to utf-8.
 (prefer-coding-system 'utf-8)
 (set-language-environment 'utf-8)
@@ -205,7 +204,7 @@
 	  (push 'coffee-mode sp-autoescape-string-quote-if-empty)
 
       (setq sp-highlight-pair-overlay nil)))
-     
+
 (require 'web-mode)
 
 (push '("php" . "\\.phtml\\'") web-mode-engine-file-regexps)
@@ -275,16 +274,14 @@
           (lambda ()
             (dolist (hook graphene-prog-mode-hooks)
               (add-hook hook (lambda () (run-hooks 'graphene-prog-mode-hook))))))
-              
 
-       
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Graphene Env
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(setq color-theme-is-global t
-      resize-mini-windows nil
-      uniquify-buffer-name-style 'forward
+(setq resize-mini-windows nil
       backup-directory-alist `((".*" . ,temporary-file-directory))
       auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 
@@ -298,39 +295,6 @@
 (put 'downcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Graphene Keys
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(global-set-key (kbd "C-x k")
-                'kill-default-buffer)
-(global-set-key (kbd "C-x C-k")
-                'kill-buffer-and-window)
-(global-set-key (kbd "C-c n")
-                'create-new-buffer)
-(global-set-key (kbd "C-c N")
-                'new-emacs-instance)
-(global-set-key (kbd "C-;")
-                'insert-semicolon-at-end-of-line)
-(global-set-key (kbd "M-RET")
-                'newline-anywhere)
-(global-set-key (kbd "C-M-;")
-                'comment-current-line-dwim)
-(global-set-key (kbd "C->")
-                'increase-window-height)
-(global-set-key (kbd "C-<")
-                'decrease-window-height)
-(global-set-key (kbd "C-,")
-                'decrease-window-width)
-(global-set-key (kbd "C-.")
-                'increase-window-width)
-(global-set-key (kbd "M-x")
-                'smex)
-(global-set-key (kbd "M-X")
-                'smex-major-mode-commands)
-(global-set-key (kbd "C-c s")
-                'sr-speedbar-select-window)
 
 
 
