@@ -30,5 +30,4 @@
                 'smex-major-mode-commands)
 (global-set-key (kbd "C-c s")
                 'sr-speedbar-select-window)
-
 (provide 'init-keys)
