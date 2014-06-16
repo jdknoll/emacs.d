@@ -21,6 +21,7 @@
  grep-highlight-matches t
  grep-scroll-output t
  indent-tabs-mode nil
+ line-spacing 0.2
  make-backup-files nil
  mouse-yank-at-point t
  save-interprogram-paste-before-kill t
