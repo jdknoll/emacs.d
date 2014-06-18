@@ -1,6 +1,3 @@
-;; Delete marked text on typing
-(delete-selection-mode t)
-
 ;; Soft-wrap lines
 (global-visual-line-mode t)
 
@@ -11,13 +8,7 @@
 (put 'dired-find-alternate-file 'disabled nil)
 (global-auto-revert-mode t)
 
-(fset 'yes-or-no-p 'y-or-n-p)
-
 (setq redisplay-dont-pause t)
-
-(scroll-bar-mode -1)
-
-(tool-bar-mode -1)
 
 (blink-cursor-mode -1)
 
