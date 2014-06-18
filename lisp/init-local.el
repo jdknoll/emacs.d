@@ -4,5 +4,7 @@
 ;(require 'init-graphene-small)
 (require 'init-helper-functions)
 (require 'init-keys)
+(require 'init-smartparens)
+(require 'init-custom)
 
 (provide 'init-local)
