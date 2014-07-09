@@ -1,3 +1,4 @@
+(require-package 'sr-speedbar)
 (global-set-key (kbd "S-s")
                 'sr-speedbar-toggle)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
