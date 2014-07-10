@@ -1,4 +1,4 @@
-(require-package 'auto-complete)
+(require-package 'auto-complete);
 (require 'auto-complete-config)
 (global-auto-complete-mode t)
 (setq-default ac-expand-on-auto-complete nil)
