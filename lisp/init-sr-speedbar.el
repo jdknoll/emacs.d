@@ -50,7 +50,7 @@
                   (define-key speedbar-mode-map [left] 'speedbar-contract-line)))
 
      ;; Pin and unpin the speedbar
-     (defvar graphene-speedbar-pinned-directory)
+;     (defvar graphene-speedbar-pinned-directory)
 
      (defadvice speedbar-update-directory-contents
        (around graphene-speedbar-pin-directory activate disable)
