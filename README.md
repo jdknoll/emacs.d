@@ -73,7 +73,7 @@ Alternatively, fork the repo and hack away at the config to make it your own!
 
 ## Similar configs
 
-You might also want to check out `emacs-starter-kit` and `emacs-prelude`.
+You might also want to check out `emacs-starter-kit` `graphene`, and `emacs-prelude`.
 
 ## Support / issues
 
