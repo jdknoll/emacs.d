@@ -5,4 +5,5 @@
 (require 'init-keys)
 (require 'init-smartparens)
 (require 'init-custom)
+(setq mouse-autoselect-window t)
 (provide 'init-local)
