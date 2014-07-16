@@ -6,4 +6,5 @@
 (require 'init-smartparens)
 (require 'init-custom)
 (setq mouse-autoselect-window t)
+(display-time-mode 1)
 (provide 'init-local)
