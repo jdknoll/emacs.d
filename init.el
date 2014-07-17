@@ -127,8 +127,6 @@
 (require 'init-keys)
 (require 'init-smartparens)
 (require 'init-custom)
-(setq mouse-autoselect-window t)
-(display-time-mode 1)
 
 ;;----------------------------------------------------------------------------
 ;; Locales (setting them earlier in this file doesn't work in X)

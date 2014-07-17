@@ -17,6 +17,12 @@
 ;; 2-space indent for CSS
 (setq css-indent-offset 2)
 
+;; select buffer based on  mouse position
+(setq mouse-autoselect-window t)
+
+;; show the time in the status buffer
+(display-time-mode 1)
+
 ;; Nicer scrolling with mouse wheel/trackpad.
 (unless (and (boundp 'mac-mouse-wheel-smooth-scroll) mac-mouse-wheel-smooth-scroll)
   (global-set-key [wheel-down] (lambda () (interactive) (scroll-up-command 1)))
