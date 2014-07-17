@@ -13,6 +13,9 @@
     (define-key map "\e[5C"   [C-right])
     (define-key map "\e[5D"   [C-left])))
 
+
+
+
 (add-hook 'after-make-console-frame-hooks
           (lambda ()
             (when (< emacs-major-version 23)
