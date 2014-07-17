@@ -118,7 +118,7 @@
 
 
 ;;----------------------------------------------------------------------------
-;; Allow users to provide an optional "init-local" containing personal settings
+;; Modules not in purcell's emacs.d
 ;;----------------------------------------------------------------------------
 (require 'init-sr-speedbar)
 (require 'init-evil)

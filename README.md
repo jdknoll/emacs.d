@@ -36,7 +36,7 @@ To install, clone this repo to `~/.emacs.d`, i.e. ensure that the
 `init.el` contained in this repo ends up at `~/.emacs.d/init.el`:
 
 ```
-git clone https://github.com/jdknoll/emacs.d.git 
+git clone https://github.com/jdknoll/emacs.d.git
 ```
 
 Upon starting up Emacs for the first time, further third-party
@@ -60,13 +60,13 @@ the third-party packages regularly too:
 
 ## Adding your own customization
 
-To add your own customization, use <kbd>M-x customize</kbd> and/or
-create a file `~/.emacs.d/lisp/init-local.el` which looks like this:
+To add you own customization, use <kbd>M-x customize</kbd> and/or
+create your own init files `~/.emacs.d/lisp/init-custom.el` which looks like this:
 
 ```el
 ... your code here ...
 
-(provide 'init-local)
+(provide 'init-custom)
 ```
 
 Alternatively, fork the repo and hack away at the config to make it your own!
@@ -74,6 +74,20 @@ Alternatively, fork the repo and hack away at the config to make it your own!
 ## Similar configs
 
 You might also want to check out `emacs-starter-kit` `graphene`, and `emacs-prelude`.
+
+## Important note
+
+The process of making purcell's emacs.d is still in progress. The eventual goal is to
+be able to remove any of the `(require init-file)` lines without breaking the startup
+in order to allow emacs users to add functionality as they need it.
+
+This may be a long process as purcell's init.el contained references to 59 files.
+
+## Benchmarking
+As you add modules, you may find that starting emacs can take a while. You can benchmark
+your init with [Profile Dot Emacs](http://www.emacswiki.org/emacs/ProfileDotEmacs). In order
+to profile the startup file, you will need to change `prfile-dotemacs-file` from `"~/.emacs"`
+to `"~/.emacs.d/init.el"`.
 
 ## Support / issues
 
