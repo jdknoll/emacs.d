@@ -86,7 +86,7 @@ This may be a long process as purcell's init.el contained references to 59 files
 ## Benchmarking
 As you add modules, you may find that starting emacs can take a while. You can benchmark
 your init with [Profile Dot Emacs](http://www.emacswiki.org/emacs/ProfileDotEmacs). In order
-to profile the startup file, you will need to change `prfile-dotemacs-file` from `"~/.emacs"`
+to profile the startup file, you will need to change `profile-dotemacs-file` from `"~/.emacs"`
 to `"~/.emacs.d/init.el"`.
 
 ## Support / issues
