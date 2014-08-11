@@ -127,7 +127,7 @@
 (require 'init-keys)
 (require 'init-smartparens)
 (require 'init-custom)
-(require 'init-mobileorg)
+;(require 'init-mobileorg)
 
 ;;----------------------------------------------------------------------------
 ;; Locales (setting them earlier in this file doesn't work in X)
