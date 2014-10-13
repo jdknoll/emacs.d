@@ -18,7 +18,7 @@
 (setq css-indent-offset 2)
 
 ;; select buffer based on  mouse position
-(setq mouse-autoselect-window t)
+;(setq mouse-autoselect-window t)
 
 ;; show the time in the status buffer
 (display-time-mode 1)
