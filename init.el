@@ -127,10 +127,6 @@
 (require 'init-keys)
 (require 'init-smartparens)
 (require 'init-custom)
-<<<<<<< HEAD
-=======
-;(require 'init-mobileorg)
->>>>>>> d4add3b04a02053880f1e19992e86eaf93c89e2a
 
 ;;----------------------------------------------------------------------------
 ;; Locales (setting them earlier in this file doesn't work in X)
