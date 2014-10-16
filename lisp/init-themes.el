@@ -3,7 +3,7 @@
 
 (require-package 'color-theme-sanityinc-solarized)
 (require-package 'color-theme-sanityinc-tomorrow)
-
+(require-package 'monokai-theme)
 ;;------------------------------------------------------------------------------
 ;; Old-style color theming support (via color-theme.el)
 ;;------------------------------------------------------------------------------
@@ -71,5 +71,9 @@ ignored: use `custom-enabled-themes' instead."
   (interactive)
   (color-theme-sanityinc-solarized-dark))
 
+(defun monokai ()
+  "Warm, colorful Monokai theme."
+  (interactive)
+  (load-theme 'monokai t))
 
 (provide 'init-themes)
