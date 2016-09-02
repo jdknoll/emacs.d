@@ -146,7 +146,6 @@
 ;;----------------------------------------------------------------------------
 ;; Modules not in purcell's emacs.d
 ;;----------------------------------------------------------------------------
-(require 'init-sr-speedbar)
 (require 'init-evil)
 (require 'init-saves)
 (require 'init-helper-functions)
