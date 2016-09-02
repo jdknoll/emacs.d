@@ -6,11 +6,11 @@
                "Rakefile\\'" "\\.rake\\'" "\\.rxml\\'"
                "\\.rjs\\'" "\\.irbrc\\'" "\\.pryrc\\'" "\\.builder\\'" "\\.ru\\'"
                "\\.gemspec\\'" "Gemfile\\'" "Kirkfile\\'")
+(add-auto-mode 'conf-mode "Gemfile\\.lock\\'")
 
 (setq ruby-use-encoding-map nil)
 
 (after-load 'ruby-mode
-  (define-key ruby-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
   (define-key ruby-mode-map (kbd "TAB") 'indent-for-tab-command)
 
   ;; Stupidly the non-bundled ruby-mode isn't a derived mode of
@@ -22,18 +22,14 @@
 
 (add-hook 'ruby-mode-hook 'subword-mode)
 
-;; TODO: hippie-expand ignoring : for names in ruby-mode
-;; TODO: hippie-expand adaptor for auto-complete sources
+(after-load 'page-break-lines
+  (push 'ruby-mode page-break-lines-modes))
+
+(require-package 'rspec-mode)
 
 
 ;;; Inferior ruby
 (require-package 'inf-ruby)
-(require-package 'ac-inf-ruby)
-(after-load 'auto-complete
-  (add-to-list 'ac-modes 'inf-ruby-mode))
-(add-hook 'inf-ruby-mode-hook 'ac-inf-ruby-enable)
-(after-load 'inf-ruby
-  (define-key inf-ruby-mode-map (kbd "TAB") 'auto-complete))
 
 
 
@@ -43,8 +39,10 @@
 (after-load 'ruby-mode
   (let ((m ruby-mode-map))
     (define-key m [S-f7] 'ruby-compilation-this-buffer)
-    (define-key m [f7] 'ruby-compilation-this-test)
-    (define-key m [f6] 'recompile)))
+    (define-key m [f7] 'ruby-compilation-this-test)))
+
+(after-load 'ruby-compilation
+  (defalias 'rake 'ruby-compilation-rake))
 
 
 
@@ -52,11 +50,22 @@
 (require-package 'robe)
 (after-load 'ruby-mode
   (add-hook 'ruby-mode-hook 'robe-mode))
-(after-load 'robe
-  (add-hook 'robe-mode-hook
-            (lambda ()
-              (add-to-list 'ac-sources 'ac-source-robe)
-              (set-auto-complete-as-completion-at-point-function))))
+
+(after-load 'company
+  (dolist (hook '(ruby-mode-hook inf-ruby-mode-hook html-erb-mode-hook haml-mode))
+    (add-hook hook
+              (lambda () (sanityinc/local-push-company-backend 'company-robe)))))
+
+
+
+;; Customise highlight-symbol to not highlight do/end/class/def etc.
+(defun sanityinc/suppress-ruby-mode-keyword-highlights ()
+  "Suppress highlight-symbol for do/end etc."
+  (set (make-local-variable 'highlight-symbol-ignore-list)
+       (list (concat "\\_<" (regexp-opt '("do" "end")) "\\_>"))))
+(add-hook 'ruby-mode-hook 'sanityinc/suppress-ruby-mode-keyword-highlights)
+
+
 
 ;;; ri support
 (require-package 'yari)
@@ -64,9 +73,16 @@
 
 
 
+(require-package 'goto-gem)
+
+
+(require-package 'bundler)
+
+
 ;;; YAML
 
-(require-package 'yaml-mode)
+(when (maybe-require-package 'yaml-mode)
+  (add-auto-mode 'yaml-mode "\\.yml\\.erb\\'"))
 
 
 
@@ -94,7 +110,7 @@
 
 (add-auto-mode 'html-erb-mode "\\.rhtml\\'" "\\.html\\.erb\\'")
 (add-to-list 'auto-mode-alist '("\\.jst\\.ejs\\'"  . html-erb-mode))
-(mmm-add-mode-ext-class 'yaml-mode "\\.yaml\\'" 'erb)
+(mmm-add-mode-ext-class 'yaml-mode "\\.yaml\\(\\.erb\\)?\\'" 'erb)
 
 (dolist (mode (list 'js-mode 'js2-mode 'js3-mode))
   (mmm-add-mode-ext-class mode "\\.js\\.erb\\'" 'erb))

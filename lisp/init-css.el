@@ -1,7 +1,5 @@
 ;;; Colourise CSS colour literals
-(when (eval-when-compile (>= emacs-major-version 24))
-  ;; rainbow-mode needs color.el, bundled with Emacs >= 24.
-  (require-package 'rainbow-mode)
+(when (maybe-require-package 'rainbow-mode)
   (dolist (hook '(css-mode-hook html-mode-hook sass-mode-hook))
     (add-hook hook 'rainbow-mode)))
 
@@ -17,7 +15,7 @@
       :front "<style[^>]*>[ \t\n]*\\(//\\)?<!\\[CDATA\\[[ \t]*\n?"
       :back "[ \t]*\\(//\\)?]]>[ \t\n]*</style>"
       :insert ((?j js-tag nil @ "<style type=\"text/css\">"
-                   @ "\n" _ "\n" @ "</script>" @)))
+                   @ "\n" _ "\n" @ "</style>" @)))
      (css
       :submode css-mode
       :face mmm-code-submode-face
@@ -48,12 +46,6 @@
 (when (featurep 'js2-mode)
   (require-package 'skewer-less))
 
-
-
-;;; Auto-complete CSS keywords
-(after-load 'auto-complete
-  (dolist (hook '(css-mode-hook sass-mode-hook scss-mode-hook))
-    (add-hook hook 'ac-css-mode-setup)))
 
 
 ;;; Use eldoc for syntax hints
