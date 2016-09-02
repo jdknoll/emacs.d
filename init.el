@@ -147,6 +147,7 @@
 ;; Modules not in purcell's emacs.d
 ;;----------------------------------------------------------------------------
 (require 'init-evil)
+(require 'init-graphene)
 (require 'init-saves)
 (require 'init-helper-functions)
 (require 'init-keys)
